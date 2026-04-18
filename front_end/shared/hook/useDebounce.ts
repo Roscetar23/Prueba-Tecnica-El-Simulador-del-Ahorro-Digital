@@ -1,5 +1,6 @@
 // Este hook implementa un debounce para retrazar la actualizacion de los valores hasta que el usuario deje de escribir
 // Para ejecutar busquedas
+'use client'
 
 import { useEffect, useState } from "react";
 

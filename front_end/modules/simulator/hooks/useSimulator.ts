@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import { calculateInterest } from "../utils/calculateInterest";
 import type { SimulationInput, SimulationResult } from "../types/simulation";

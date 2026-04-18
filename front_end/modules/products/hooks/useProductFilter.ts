@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useMemo } from 'react'
 import { useDebounce } from '@/shared/hook/useDebounce'
 import type { Product } from '../types/product'

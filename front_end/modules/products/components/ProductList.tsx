@@ -1,3 +1,5 @@
+'use client'
+
 import { useProductFilter } from "../hooks/useProductFilter";
 import { FilterBar } from "./FilterBar";
 import { ProductCard } from "./ProductCard";

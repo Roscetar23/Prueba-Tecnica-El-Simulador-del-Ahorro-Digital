@@ -1,3 +1,5 @@
+'use client'
+
 import { Input } from "@/shared/components/input";
 import { Button } from "@/shared/components/Button";
 import { useSimulator } from "../hooks/useSimulator";
