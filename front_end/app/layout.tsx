@@ -1,15 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Geologica} from "next/font/google";
 import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const geologica = Geologica({
+  variable: "--font-geologica",
   subsets: ["latin"],
 });
 
@@ -26,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+       className={`${geologica.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-gray-50">
         <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
