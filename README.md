@@ -4,30 +4,30 @@
 
 Este README contiene toda la información de la prueba técnica “Aventura: El Simulador del Ahorro Digital”.
 
-Aquí podrán leer la arquitectura que manejé, la estructura del monorepo, 
-las técnicas y herramientas utilizadas para llegar a la solución del problema, 
+Aquí podrán leer la arquitectura que manejé, la estructura del monorepo,
+las técnicas y herramientas utilizadas para llegar a la solución del problema,
 su instalación y ejecución, y cómo funcionan las principales vistas.
 
 ## Arquitectura
 
 ### Screaming Architecture
 
-Para la arquitectura del frontend se implementó Screaming Architecture, ya que 
+Para la arquitectura del frontend se implementó Screaming Architecture, ya que
 es la mejor opción para proyectos modulares como esta prueba técnica.
 
-La idea principal de esta arquitectura es que la estructura de carpetas "grite" 
-el dominio del negocio. Al abrir el proyecto, lo primero que se ve es `products/`, 
-`simulator/` y `onboarding/`, no carpetas técnicas como `components/` o `hooks/` 
-en la raíz. Esto hace que cualquier desarrollador entienda de qué trata la 
+La idea principal de esta arquitectura es que la estructura de carpetas "grite"
+el dominio del negocio. Al abrir el proyecto, lo primero que se ve es `products/`,
+`simulator/` y `onboarding/`, no carpetas técnicas como `components/` o `hooks/`
+en la raíz. Esto hace que cualquier desarrollador entienda de qué trata la
 aplicación sin leer una sola línea de código.
 
-Cada módulo es completamente independiente y contiene todo lo que necesita para 
-funcionar: sus propios componentes, hooks, tipos y utilidades. Si mañana se 
+Cada módulo es completamente independiente y contiene todo lo que necesita para
+funcionar: sus propios componentes, hooks, tipos y utilidades. Si mañana se
 elimina el módulo `simulator/`, el resto de la aplicación no se ve afectada.
 
-Para el código reutilizable entre módulos existe una carpeta `shared/` que 
-centraliza componentes base, hooks genéricos como `useDebounce`, utilidades 
-como `formatCurrency` y `generateUUID`, y tipos comunes. La regla es simple: 
+Para el código reutilizable entre módulos existe una carpeta `shared/` que
+centraliza componentes base, hooks genéricos como `useDebounce`, utilidades
+como `formatCurrency` y `generateUUID`, y tipos comunes. La regla es simple:
 si algo lo usa más de un módulo, va a `shared/`.
 
 ### Estructura del monorepo
@@ -71,6 +71,7 @@ En la presentación de la prueba técnica se explicará este punto con mayor det
 
 ### Frontend
 
+```
 front_end/
 ├── app/
 │ ├── layout.tsx
@@ -127,9 +128,11 @@ front_end/
 │ └── generateUUID.ts
 └── lib/
 └── api.ts
+```
 
 ### Backend
 
+```
 back_end/
 ├── src/
 │ ├── app.module.ts
@@ -143,14 +146,14 @@ back_end/
 ├── nest-cli.json
 ├── tsconfig.json
 └── package.json
+```
 
 ## Instalación y ejecución
 
-Para este apartado solo es necesario clonar el monorepo, 
-instalar las dependencias en ambas carpetas y ejecutar ambos proyectos. 
-El front se visualizará en el puerto 3000 y el backend en el puerto 3001. 
+Para este apartado solo es necesario clonar el monorepo,
+instalar las dependencias en ambas carpetas y ejecutar ambos proyectos.
+El front se visualizará en el puerto 3000 y el backend en el puerto 3001.
 Recomiendo primero ejecutar el backend y después el front.
-
 
 ### Backend
 
@@ -215,25 +218,24 @@ Para mostrar en la tabla de resultados las ganancias mensuales de los usuarios
 
 ## 🔐 reCAPTCHA simulado
 
-Dado que la prueba técnica no requería integrar un servicio real de reCAPTCHA, 
+Dado que la prueba técnica no requería integrar un servicio real de reCAPTCHA,
 se implementó una validación simulada para cumplir con el requisito funcional.
 
 ### ¿Cómo funciona?
 
-El formulario de onboarding incluye un campo de verificación que el usuario 
-debe completar. La validación es simple: si el token ingresado es exactamente 
-`OK`, la solicitud se procesa. De lo contrario, se muestra un error visual 
+El formulario de onboarding incluye un campo de verificación que el usuario
+debe completar. La validación es simple: si el token ingresado es exactamente
+`OK`, la solicitud se procesa. De lo contrario, se muestra un error visual
 indicando que el token es inválido.
 
 ### Implementación
 
 La lógica está en `modules/onboarding/utils/recaptchaValidator.ts`:
 
-
 ### En producción
 
-En un entorno productivo esto se reemplazaría por **Google reCAPTCHA v3**, 
-donde el cliente obtiene un token del servicio de Google y el backend lo 
+En un entorno productivo esto se reemplazaría por **Google reCAPTCHA v3**,
+donde el cliente obtiene un token del servicio de Google y el backend lo
 valida contra la API de reCAPTCHA antes de procesar la solicitud.
 
 ## ✅ Checklist de requisitos
