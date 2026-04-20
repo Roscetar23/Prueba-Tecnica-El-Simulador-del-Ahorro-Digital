@@ -3,11 +3,29 @@ import type { SimulationResult } from '../types/simulation'
 
 // Trae los datos de resultados de la simulacion
 interface SimulatorResultProps {
-  result: SimulationResult
+  result: SimulationResult | null 
 }
 
 // Esta funcion mueestra laa logica al terminar una simulacion 
 export function SimulatorResult({ result }: SimulatorResultProps) {
+
+  // Agregue validacion por cambio de estilo, ahora puede ser null para el usuario y vera esta mensaje
+  if (!result) {
+    return (
+      <div className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col items-center justify-center gap-4 text-center min-h-[300px]">
+        <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
+          <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 12h.01M12 12h.01M15 12h.01M12 7h.01M9 17h6" />
+          </svg>
+        </div>
+        <div>
+          <p className="text-base font-semibold text-gray-700">Ingresa los datos para simular</p>
+          <p className="text-sm text-gray-400 mt-1">Completa el formulario y presiona Calcular</p>
+        </div>
+      </div>
+    )
+  }
+  
   const { finalAmount, totalContributions, interestEarned } = result
 
   return (

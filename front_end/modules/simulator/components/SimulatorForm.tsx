@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Input } from "@/shared/components/input";
 import { Button } from "@/shared/components/Button";
@@ -11,8 +11,8 @@ export function SimulatorForm() {
     useSimulator();
 
   return (
-    <div className="max-w-2xl mx-auto flex flex-col gap-8">
-      <div className="bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-6">
+    <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <div className="w-full lg:w-[420px] shrink-0 bg-white rounded-2xl border border-gray-200 p-8 flex flex-col gap-6">
         <h2 className="text-lg font-semibold text-gray-900">
           Ingresa los datos
         </h2>
@@ -64,8 +64,9 @@ export function SimulatorForm() {
           )}
         </div>
       </div>
-
-      {result && <SimulatorResult result={result} />}
+      <div className="flex-1 w-full">
+         <SimulatorResult result={result} />
+      </div>
     </div>
   );
 }
